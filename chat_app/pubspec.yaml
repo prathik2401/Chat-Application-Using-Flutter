@@ -42,7 +42,7 @@ dependencies:
   velocity_x: ^4.1.1
   country_picker: ^2.0.21
   flutter_riverpod: ^2.4.4
-
+  image_picker: ^1.0.4
 dev_dependencies:
   flutter_test:
     sdk: flutter
@@ -69,6 +69,7 @@ flutter:
   assets:
     - assets/background_image1.png
     - assets/bg.png
+    - assets/no_profile_pic.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware

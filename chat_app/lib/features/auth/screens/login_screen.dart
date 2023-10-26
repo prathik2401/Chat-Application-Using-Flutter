@@ -1,17 +1,22 @@
+// ignore_for_file: no_leading_underscores_for_local_identifiers
+
+import 'package:chat_app/common/utils/utils.dart';
 import 'package:chat_app/common/widgets/custom_button.dart';
+import 'package:chat_app/features/auth/controller/auth_controller.dart';
 import 'package:chat_app/widgets/colors.dart';
 import 'package:country_picker/country_picker.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-class LoginScreen extends StatefulWidget {
+class LoginScreen extends ConsumerStatefulWidget {
   static const routeName = '/login-screen';
   const LoginScreen({super.key});
 
   @override
-  State<LoginScreen> createState() => _LoginScreenState();
+  ConsumerState<LoginScreen> createState() => _LoginScreenState();
 }
 
-class _LoginScreenState extends State<LoginScreen> {
+class _LoginScreenState extends ConsumerState<LoginScreen> {
   final phoneController = TextEditingController();
   Country? country;
   @override
@@ -28,6 +33,17 @@ class _LoginScreenState extends State<LoginScreen> {
             country = _country;
           });
         });
+  }
+
+  void sendPhoneNumber() {
+    String phoneNumber = phoneController.text.trim();
+    if (country != null && phoneNumber.isNotEmpty) {
+      ref
+          .read(authControllerProvider)
+          .signInWithPhone(context, '+${country!.phoneCode}$phoneNumber');
+    } else {
+      showSnackBar(context: context, content: 'Fill out all the fields.');
+    }
   }
 
   @override
@@ -66,6 +82,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 child: TextField(
                   controller: phoneController,
                   decoration: const InputDecoration(hintText: 'Phone Number'),
+                  keyboardType: TextInputType.number,
                 ),
               )
             ],
@@ -74,7 +91,7 @@ class _LoginScreenState extends State<LoginScreen> {
           SizedBox(
             width: 90,
             child: CustomButton(
-              onPressed: () {},
+              onPressed: sendPhoneNumber,
               text: "Next",
             ),
           )

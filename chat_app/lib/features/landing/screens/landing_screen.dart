@@ -16,43 +16,45 @@ class LandingScreen extends StatelessWidget {
     var agreeButtonText = 'Agree and Continue';
     return Scaffold(
       body: SafeArea(
-          child: Column(
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: [
-          const SizedBox(
-            height: 50,
-          ),
-          const Text(
-            'Welcome to uConnect',
-            style: TextStyle(
-                fontSize: 33, fontWeight: FontWeight.w600, color: titleColor),
-          ),
-          SizedBox(
-            height: size.height / 9,
-          ),
-          Image.asset(
-            'assets/bg.png',
-            height: 340,
-            width: 340,
-          ),
-          SizedBox(height: size.height / 9),
-          const Padding(
-            padding: EdgeInsets.all(15.0),
-            child: Text(
-              'Read our privacy policy. Tap "Agree and Continue" after reading.',
-              style: TextStyle(color: greyColor),
-              textAlign: TextAlign.center,
+          child: Center(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            const SizedBox(
+              height: 50,
             ),
-          ),
-          const SizedBox(
-            height: 10,
-          ),
-          SizedBox(
-              width: size.width * 0.75,
-              child: CustomButton(
-                  text: agreeButtonText,
-                  onPressed: () => navigateToLoginScreen(context))),
-        ],
+            const Text(
+              'Welcome to uConnect',
+              style: TextStyle(
+                  fontSize: 33, fontWeight: FontWeight.w600, color: titleColor),
+            ),
+            SizedBox(
+              height: size.height / 9,
+            ),
+            Image.asset(
+              'assets/bg.png',
+              height: 340,
+              width: 340,
+            ),
+            SizedBox(height: size.height / 9),
+            const Padding(
+              padding: EdgeInsets.all(15.0),
+              child: Text(
+                'Read our privacy policy. Tap "Agree and Continue" after reading.',
+                style: TextStyle(color: greyColor),
+                textAlign: TextAlign.center,
+              ),
+            ),
+            const SizedBox(
+              height: 10,
+            ),
+            SizedBox(
+                width: size.width * 0.75,
+                child: CustomButton(
+                    text: agreeButtonText,
+                    onPressed: () => navigateToLoginScreen(context))),
+          ],
+        ),
       )),
     );
   }

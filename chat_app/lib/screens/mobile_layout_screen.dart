@@ -1,3 +1,4 @@
+import 'package:chat_app/features/select_contacts/screens/select_contact_screen.dart';
 import 'package:chat_app/widgets/colors.dart';
 import 'package:chat_app/widgets/contacts_list.dart';
 import 'package:flutter/material.dart';
@@ -55,7 +56,9 @@ class MobileLayoutScreen extends StatelessWidget {
         ),
         body: const ContactsList(),
         floatingActionButton: FloatingActionButton(
-          onPressed: () {},
+          onPressed: () {
+            Navigator.pushNamed(context, SelectContactScreen.routeName);
+          },
           backgroundColor: tabColor,
           child: const Icon(
             Icons.comment,

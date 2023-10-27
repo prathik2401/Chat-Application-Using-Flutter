@@ -50,52 +50,54 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
     return Scaffold(
-      resizeToAvoidBottomInset: false,
       appBar: AppBar(
         title: const Text('Enter your phone number'),
         backgroundColor: backgroundColor,
         elevation: 0,
       ),
-      body: Padding(
-        padding: const EdgeInsets.all(18.0),
-        child: Column(crossAxisAlignment: CrossAxisAlignment.center, children: [
-          const Text('uConnect needs to verify your phone number.'),
-          const SizedBox(
-            height: 10,
-          ),
-          TextButton(
-              onPressed: () {
-                pickCountry();
-              },
-              child: const Text('Pick Country')),
-          const SizedBox(
-            height: 5,
-          ),
-          Row(
-            children: [
-              if (country != null) Text('+${country!.phoneCode}'),
-              const SizedBox(
-                width: 10,
-              ),
-              SizedBox(
-                width: size.width * 0.6,
-                child: TextField(
-                  controller: phoneController,
-                  decoration: const InputDecoration(hintText: 'Phone Number'),
-                  keyboardType: TextInputType.number,
-                ),
-              )
-            ],
-          ),
-          SizedBox(height: size.height * 0.6),
-          SizedBox(
-            width: 90,
-            child: CustomButton(
-              onPressed: sendPhoneNumber,
-              text: "Next",
+      body: SingleChildScrollView(
+        child: Padding(
+          padding: const EdgeInsets.all(18.0),
+          child:
+              Column(crossAxisAlignment: CrossAxisAlignment.center, children: [
+            const Text('uConnect needs to verify your phone number.'),
+            const SizedBox(
+              height: 10,
             ),
-          )
-        ]),
+            TextButton(
+                onPressed: () {
+                  pickCountry();
+                },
+                child: const Text('Pick Country')),
+            const SizedBox(
+              height: 5,
+            ),
+            Row(
+              children: [
+                if (country != null) Text('+${country!.phoneCode}'),
+                const SizedBox(
+                  width: 10,
+                ),
+                SizedBox(
+                  width: size.width * 0.6,
+                  child: TextField(
+                    controller: phoneController,
+                    decoration: const InputDecoration(hintText: 'Phone Number'),
+                    keyboardType: TextInputType.number,
+                  ),
+                )
+              ],
+            ),
+            SizedBox(height: size.height * 0.6),
+            SizedBox(
+              width: 90,
+              child: CustomButton(
+                onPressed: sendPhoneNumber,
+                text: "Next",
+              ),
+            )
+          ]),
+        ),
       ),
     );
   }

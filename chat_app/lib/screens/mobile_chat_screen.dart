@@ -4,6 +4,7 @@ import 'package:chat_app/widgets/info.dart';
 import 'package:flutter/material.dart';
 
 class MobileChatScreen extends StatelessWidget {
+  static const String routeName = '/mobile-chat-screen';
   const MobileChatScreen({Key? key}) : super(key: key);
 
   @override
@@ -66,7 +67,7 @@ class MobileChatScreen extends StatelessWidget {
                   ],
                 ),
               ),
-              hintText: 'Type a message...',
+              hintText: 'Type a message!',
               border: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(20.0),
                 borderSide: const BorderSide(

@@ -8,7 +8,13 @@ import 'package:chat_app/models/user_model.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:uuid/uuid.dart';
+
+final chatRepositoryProvider = Provider((ref) => ChatRepository(
+      firestore: FirebaseFirestore.instance,
+      auth: FirebaseAuth.instance,
+    ));
 
 class ChatRepository {
   final FirebaseFirestore firestore;
@@ -88,6 +94,14 @@ class ChatRepository {
         .doc(messageId)
         .set(message.toMap());
     //users -> sender id -> receiver id-> messages -> message id -> store message
+    await firestore
+        .collection('users')
+        .doc(receiverUserId)
+        .collection('chats')
+        .doc(auth.currentUser!.uid)
+        .collection('messages')
+        .doc(messageId)
+        .set(message.toMap());
   }
 
   void sendTextMessage({

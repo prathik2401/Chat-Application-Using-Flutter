@@ -1,6 +1,6 @@
 const info = [
   {
-    'name': 'Rivaan Ranawat',
+    'name': 'Bhupendra Jogi',
     'message': 'Hey, how are you doing?',
     'time': '3:53 pm',
     'profilePic':
@@ -83,17 +83,13 @@ const messages = [
   {"isMe": true, "text": "Obviously, say", "time": "11:03 am"},
   {
     "isMe": false,
-    "text": "haha I wanted you to check out my new channel ^^",
+    "text": "haha I wanted you to check out my new place ^^",
     "time": "11:04 am"
   },
-  {
-    "isMe": true,
-    "text": " Sure, what is the channel name?",
-    "time": "11:05 am"
-  },
+  {"isMe": true, "text": " Sure, what is the place name?", "time": "11:05 am"},
   {
     "isMe": false,
-    "text": "Rivaan Ranawat",
+    "text": "Bhupendra Jogi",
     "time": "11:06 am",
   },
   {

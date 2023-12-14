@@ -1,7 +1,7 @@
 import 'package:chat_app/common/widgets/loader.dart';
 import 'package:chat_app/features/auth/controller/auth_controller.dart';
 import 'package:chat_app/features/landing/screens/landing_screen.dart';
-import 'package:chat_app/routes.dart';
+import 'package:chat_app/router.dart';
 import 'package:chat_app/screens/mobile_layout_screen.dart';
 import 'package:chat_app/widgets/colors.dart';
 import 'package:chat_app/firebase_options.dart';

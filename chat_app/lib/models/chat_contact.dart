@@ -15,7 +15,7 @@ class ChatContact {
   Map<String, dynamic> toMap() {
     return <String, dynamic>{
       'name': name,
-      'profilePic': profilePic,
+      'profilepic': profilePic,
       'contactId': contactId,
       'timeSent': timeSent.millisecondsSinceEpoch,
       'lastMessage': lastMessage,
@@ -25,7 +25,7 @@ class ChatContact {
   factory ChatContact.fromMap(Map<String, dynamic> map) {
     return ChatContact(
       name: map['name'] as String,
-      profilePic: map['profilePic'] as String,
+      profilePic: map['profilepic'] as String,
       contactId: map['contactId'] as String,
       timeSent: DateTime.fromMillisecondsSinceEpoch(map['timeSent'] as int),
       lastMessage: map['lastMessage'] as String,

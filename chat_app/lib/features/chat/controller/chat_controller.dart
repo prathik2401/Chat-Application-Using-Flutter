@@ -1,5 +1,6 @@
 import 'package:chat_app/features/auth/controller/auth_controller.dart';
 import 'package:chat_app/features/chat/repositories/chat_repository.dart';
+import 'package:chat_app/models/chat_contact.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
@@ -17,6 +18,10 @@ class ChatController {
   final ProviderRef ref;
 
   ChatController({required this.chatRepository, required this.ref});
+
+  Stream<List<ChatContact>> chatContacts() {
+    return chatRepository.getChatContacts();
+  }
 
   void sendTextMessage(
       BuildContext context, String text, String receiverUserId) {

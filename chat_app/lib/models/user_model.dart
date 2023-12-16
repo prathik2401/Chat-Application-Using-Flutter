@@ -29,7 +29,7 @@ class UserModel {
     return UserModel(
       name: map['name'] ?? '',
       uid: map['uid'] ?? '',
-      profilepic: map['profilePic'] ?? '',
+      profilepic: map['profilepic'] ?? '',
       isOnline: map['isOnline'] ?? false,
       phoneNumber: map['phoneNumber'] ?? '',
       groupId: List<String>.from(map['groupId']),

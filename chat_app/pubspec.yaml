@@ -47,6 +47,15 @@ dependencies:
   uuid: ^4.2.1
   intl: ^0.18.1
   dio_image_provider: ^0.0.2
+  cached_network_image: ^3.3.0
+  cached_video_player: ^2.0.4
+  emoji_picker_flutter: ^1.6.3
+  enough_giphy_flutter: ^0.4.1
+  permission_handler: ^9.2.0
+  flutter_sound: ^9.2.13
+  path_provider: ^2.1.1
+dependency_overrides: 
+  uuid: ^3.0.1
 dev_dependencies:
   flutter_test:
     sdk: flutter

@@ -40,12 +40,12 @@ class ContactsList extends ConsumerWidget {
                     children: [
                       InkWell(
                         onTap: () {
-                          Navigator.of(context).push(MaterialPageRoute(
-                            builder: (context) => const MobileChatScreen(
-                              name: 'name',
-                              uid: 'uid',
-                            ),
-                          ));
+                          Navigator.pushNamed(
+                              context, MobileChatScreen.routeName,
+                              arguments: {
+                                'name': chatContactData.name,
+                                'uid': chatContactData.contactId,
+                              });
                         },
                         child: Padding(
                           padding: const EdgeInsets.only(bottom: 8.0),

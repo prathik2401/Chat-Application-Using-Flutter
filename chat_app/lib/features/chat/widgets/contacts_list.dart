@@ -24,7 +24,7 @@ class ContactsList extends ConsumerWidget {
               return const CircularProgressIndicator();
             case ConnectionState.active:
             case ConnectionState.done:
-              print(snapshot.data);
+              // print(snapshot.data);
               if (!snapshot.hasData ||
                   snapshot.data == null ||
                   snapshot.hasError) {

@@ -7,6 +7,8 @@ class MessageReply {
   final MessageEnum messageEnum;
 
   MessageReply(this.message, this.isMe, this.messageEnum);
+
+  get username => null;
 }
 
 final messageReplyProvider = StateProvider<MessageReply?>((ref) => null);

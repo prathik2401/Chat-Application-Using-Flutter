@@ -1,24 +1,25 @@
+// ignore_for_file: public_member_api_docs, sort_constructors_first
+import 'package:flutter/material.dart';
+
 import 'package:chat_app/common/enums/message_enum.dart';
 import 'package:chat_app/features/chat/widgets/display_message_type.dart';
 import 'package:chat_app/widgets/colors.dart';
-import 'package:flutter/material.dart';
 import 'package:swipe_to/swipe_to.dart';
 
-class MyMessageCard extends StatelessWidget {
+class SenderMessageCard extends StatelessWidget {
   final String message;
   final String date;
   final MessageEnum type;
-  final VoidCallback onLeftSwipe;
+  final VoidCallback onRightSwipe;
   final String repliedText;
   final String username;
   final MessageEnum repliedMessageType;
-
-  const MyMessageCard({
+  const SenderMessageCard({
     Key? key,
     required this.message,
     required this.date,
     required this.type,
-    required this.onLeftSwipe,
+    required this.onRightSwipe,
     required this.repliedText,
     required this.username,
     required this.repliedMessageType,
@@ -28,9 +29,9 @@ class MyMessageCard extends StatelessWidget {
   Widget build(BuildContext context) {
     final isReplying = repliedText.isNotEmpty;
     return SwipeTo(
-      onLeftSwipe: (details) => onLeftSwipe(),
+      onRightSwipe: (details) => onRightSwipe(),
       child: Align(
-        alignment: Alignment.centerRight,
+        alignment: Alignment.centerLeft,
         child: ConstrainedBox(
           constraints: BoxConstraints(
             maxWidth: MediaQuery.of(context).size.width - 45,
@@ -39,7 +40,7 @@ class MyMessageCard extends StatelessWidget {
             elevation: 1,
             shape:
                 RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
-            color: messageColor,
+            color: senderMessageColor,
             margin: const EdgeInsets.symmetric(horizontal: 15, vertical: 5),
             child: Stack(
               children: [
@@ -92,26 +93,14 @@ class MyMessageCard extends StatelessWidget {
                   ),
                 ),
                 Positioned(
-                  bottom: 4,
+                  bottom: 2,
                   right: 10,
-                  child: Row(
-                    children: [
-                      Text(
-                        date,
-                        style: const TextStyle(
-                          fontSize: 13,
-                          color: Colors.white60,
-                        ),
-                      ),
-                      const SizedBox(
-                        width: 5,
-                      ),
-                      const Icon(
-                        Icons.done_all,
-                        size: 20,
-                        color: Colors.white60,
-                      ),
-                    ],
+                  child: Text(
+                    date,
+                    style: TextStyle(
+                      fontSize: 13,
+                      color: Colors.grey[600],
+                    ),
                   ),
                 ),
               ],

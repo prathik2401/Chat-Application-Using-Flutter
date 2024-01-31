@@ -65,9 +65,12 @@ class ContactsList extends ConsumerWidget {
                               ),
                             ),
                             leading: CircleAvatar(
-                              backgroundImage: NetworkImage(
-                                chatContactData.profilePic,
-                              ),
+                              backgroundImage: chatContactData.profilePic == ""
+                                  ? const AssetImage(
+                                      '//assets/no_profile_pic.png')
+                                  : NetworkImage(chatContactData.profilePic)
+                                      as ImageProvider<Object>?,
+                              backgroundColor: Colors.amber,
                               radius: 30,
                             ),
                             trailing: Text(
